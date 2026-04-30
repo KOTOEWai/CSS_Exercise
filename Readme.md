@@ -7,7 +7,7 @@
 - [Units](#units)
 - [Selectors](#selectors)
 - [Colors](#Colors)
-- [Background](#background)
+- [Background](#backgrounds)
 ## What is CSS?
 **CSS (Cascading Style Sheets)** က web page ရဲ့ style နဲ့ layout ကို control လုပ်တဲ့ language ဖြစ်ပါတယ်။  
 HTML က content structure (ခေါင်းစဉ်, paragraph, image...) ကို သတ်မှတ်ပေးပြီး, CSS က အဲ့ဒီ content တွေကို ဘယ်လိုမြင်ရမလဲဆိုတာကို သတ်မှတ်ပေးပါတယ်။
