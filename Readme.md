@@ -653,7 +653,7 @@ Conic Gradient (စက်ဝိုင်းပတ်)
 ```
 
 
-**CSS Fonts - အပြည့်စုံဆုံးလမ်းညွှန် (Complete Guide)**
+## Fonts
 
 `font-family` သည် စာသား၏ ဖောင့်အမျိုးအစားကို သတ်မှတ်သည်။
 
