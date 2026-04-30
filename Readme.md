@@ -8,6 +8,9 @@
 - [Selectors](#selectors)
 - [Colors](#Colors)
 - [Background](#backgrounds)
+- [Fonts](#fonts)
+
+
 ## What is CSS?
 **CSS (Cascading Style Sheets)** က web page ရဲ့ style နဲ့ layout ကို control လုပ်တဲ့ language ဖြစ်ပါတယ်။  
 HTML က content structure (ခေါင်းစဉ်, paragraph, image...) ကို သတ်မှတ်ပေးပြီး, CSS က အဲ့ဒီ content တွေကို ဘယ်လိုမြင်ရမလဲဆိုတာကို သတ်မှတ်ပေးပါတယ်။
@@ -32,18 +35,7 @@ selector {
 
 ### Syntax Breakdown
 - **selector**: style သက်ရောက်စေချင်တဲ့ HTML element ကိုရွေးတာ (ဥပမာ `h1`, `.btn`, `#header`)
-- **property**: ဘာကိုပြောင်းမလဲဆိုတာ (ဥပမာ `color`, `font-size`, `margin`)
-- **value**: ဘယ်တန်ဖိုးသတ်မှတ်မလဲဆိုတာ (ဥပမာ `blue`, `20px`, `10px`)
 
-### Example
-```css
-p {
-  color: green;
-  font-size: 18px;
-}
-```
-
-အထက်က code မှာ `p` tag အားလုံးရဲ့ စာသားအရောင်ကို စိမ်းရောင်ထားပြီး စာလုံးအရွယ်အစားကို `18px` သတ်မှတ်ထားတာဖြစ်ပါတယ်။
 
 ## Types
 CSS ကို သုံးပုံသုံးနည်း အဓိက 3 မျိုးရှိပါတယ် -
@@ -659,3 +651,558 @@ Conic Gradient (စက်ဝိုင်းပတ်)
   background: conic-gradient(red 0deg 90deg, blue 90deg 180deg, green 180deg 270deg, yellow 270deg 360deg);
 }
 ```
+
+
+**CSS Fonts - အပြည့်စုံဆုံးလမ်းညွှန် (Complete Guide)**
+
+`font-family` သည် စာသား၏ ဖောင့်အမျိုးအစားကို သတ်မှတ်သည်။
+
+```css
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.inline-code {
+  font-family: 'Courier New', Courier, monospace;
+}
+```
+
+ဖောင့်နာမည်တွင် space ပါပါက ကိုးကားချက်သုံးရန် လိုအပ်သည်။ `serif` (အဆွယ်ပါ)၊ `sans-serif` (အဆွယ်မပါ)၊ `monospace` (စာလုံးအကျယ်တူ)၊ `cursive` (လက်ရေးပုံစံ)၊ `fantasy` (အလှဖောင့်) ဟူ၍ generic family ငါးမျိုးရှိသည်။
+
+```css
+.serif-example {
+  font-family: 'Times New Roman', Times, serif;
+}
+.sans-example {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.mono-example {
+  font-family: 'Courier New', Courier, monospace;
+}
+.cursive-example {
+  font-family: 'Brush Script MT', cursive;
+}
+.fantasy-example {
+  font-family: 'Copperplate', Papyrus, fantasy;
+}
+```
+
+---
+
+`font-size` သည် ဖောင့်၏ အရွယ်အစားကို သတ်မှတ်သည်။
+
+```css
+p {
+  font-size: 16px;
+  font-size: 1rem;
+  font-size: 1.2em;
+  font-size: 80%;
+  font-size: larger;
+  font-size: x-small;
+  font-size: medium;
+  font-size: large;
+}
+```
+
+`px` (pixel) သည် အကြွင်းမဲ့တန်ဖိုး။ `rem` သည် root element (html) ၏ font-size ပေါ်မူတည် (ပုံမှန် 1rem = 16px)။ `em` သည် parent element ပေါ်မူတည်။ `%` သည် ရာခိုင်နှုန်း။ `vw` သည် viewport width ၏ ရာခိုင်နှုန်း (responsive typography အတွက် အသုံးဝင်)။
+
+```css
+.responsive-title {
+  font-size: 5vw;
+}
+```
+
+---
+
+`font-weight` သည် ဖောင့်၏ အထူကို သတ်မှတ်သည်။
+
+```css
+p {
+  font-weight: normal;
+  font-weight: bold;
+  font-weight: bolder;
+  font-weight: lighter;
+  font-weight: 100;
+  font-weight: 200;
+  font-weight: 300;
+  font-weight: 400;
+  font-weight: 500;
+  font-weight: 600;
+  font-weight: 700;
+  font-weight: 800;
+  font-weight: 900;
+}
+```
+
+`normal` = 400၊ `bold` = 700။ `bolder` နှင့် `lighter` သည် parent ၏ weight ပေါ်မူတည်၍ အလိုအလျောက် တိုးလျော့ပေးသည်။ ဖောင့်တစ်ခုစီတွင် ရနိုင်သော weight အကုန်မပါဝင်နိုင်ပါ။
+
+---
+
+`font-style` သည် ဖောင့်ကို စောင်းအောင်ပြုလုပ်သည်။
+
+```css
+em {
+  font-style: italic;
+  font-style: oblique;
+  font-style: oblique 10deg;
+  font-style: normal;
+}
+```
+
+`italic` သည် စာလုံးပုံစံပါသော စောင်းခြင်း၊ `oblique` မှာ စာလုံးပုံစံမပါဘဲ စောင်းခြင်း (ဒီဂရီသတ်မှတ်နိုင်သည်)။
+
+---
+
+`font-stretch` သည် ဖောင့်၏ အကျယ်အဝန်းကို သတ်မှတ်သည်။
+
+```css
+p {
+  font-stretch: normal;
+  font-stretch: condensed;
+  font-stretch: expanded;
+  font-stretch: ultra-condensed;
+  font-stretch: extra-condensed;
+  font-stretch: semi-condensed;
+  font-stretch: semi-expanded;
+  font-stretch: extra-expanded;
+  font-stretch: ultra-expanded;
+  font-stretch: 75%;
+}
+```
+
+ဖောင့်အများစုတွင် ဤ feature ကို မပံ့ပိုးနိုင်ပါ။ ရာခိုင်နှုန်းတန်ဖိုး (50% မှ 200% အတွင်း) လည်းသုံးနိုင်သည်။
+
+---
+
+`font-variant` သည် စာလုံးပုံစံကွဲများအတွက်ဖြစ်သည်။
+
+```css
+h2 {
+  font-variant: small-caps;
+  font-variant: normal;
+  font-variant: all-small-caps;
+  font-variant: titling-caps;
+}
+```
+
+`small-caps` သည် စာလုံးအသေးများကို အကြီးပုံစံဖြင့် အရွယ်အစားသေးအောင်ပြောင်း။ `all-small-caps` သည် စာလုံးအားလုံးကို အကြီးပုံစံသေးသွားအောင်ပြောင်း။
+
+---
+
+`line-height` သည် စာကြောင်းနှစ်ကြောင်းကြား ဒေါင်လိုက်နေရာလွတ်ဖြစ်သည်။
+
+```css
+body {
+  line-height: 1.5;
+  line-height: 24px;
+  line-height: 150%;
+  line-height: normal;
+}
+```
+
+ယူနစ်မပါသော နံပါတ် (ဥပမာ 1.5) သည် အကောင်းဆုံးဖြစ်ပြီး လက်ရှိ font-size ၏ 1.5 ဆဟု အဓိပ္ပာယ်ရသည်။
+
+---
+
+`letter-spacing` (character spacing သို့မဟုတ် tracking) သည် စာလုံးများကြား နေရာလွတ်ဖြစ်သည်။
+
+```css
+h1 {
+  letter-spacing: 2px;
+  letter-spacing: 0.1em;
+  letter-spacing: normal;
+}
+```
+
+`word-spacing` သည် စာလုံးများကြား မဟုတ်ဘဲ စကားလုံးများကြား နေရာလွတ်ဖြစ်သည်။
+
+```css
+p {
+  word-spacing: 4px;
+  word-spacing: 0.2em;
+  word-spacing: normal;
+}
+```
+
+---
+
+`text-align` သည် စာသား၏ အနေအထားကို သတ်မှတ်သည်။
+
+```css
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.justify {
+  text-align: justify;
+}
+```
+
+`justify` သည် ဘယ်ညာညီညာစွာ ဖြန့်ခင်းပေးသည်။ `text-align-last` က နောက်ဆုံးစာကြောင်းကို သီးသန့်သတ်မှတ်ပေးသည်။
+
+```css
+.justify-last-center {
+  text-align: justify;
+  text-align-last: center;
+}
+```
+
+---
+
+`text-transform` သည် စာသား၏ အကြီးအသေးကို ပြောင်းလဲပေးသည်။
+
+```css
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.normal-case {
+  text-transform: none;
+}
+```
+
+`uppercase` အကုန်အကြီး၊ `lowercase` အကုန်အသေး၊ `capitalize` စကားလုံးတိုင်း၏ ပထမစာလုံးကို အကြီး။
+
+---
+
+`text-decoration` သည် စာသားအောက်မျဉ်း၊ အပေါ်မျဉ်း၊ ဖြတ်မျဉ်းတို့အတွက်ဖြစ်သည်။
+
+```css
+.underline {
+  text-decoration: underline;
+}
+.overline {
+  text-decoration: overline;
+}
+.line-through {
+  text-decoration: line-through;
+}
+.no-underline {
+  text-decoration: none;
+}
+.combined {
+  text-decoration: underline wavy red;
+}
+```
+
+`text-decoration` ကို style (solid, wavy, dotted, dashed)၊ color နှင့် thickness သတ်မှတ်နိုင်သည်။
+
+---
+
+`text-shadow` သည် စာသားအတွက် အရိပ်ထည့်ပေးသည်။
+
+```css
+.shadow {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.multiple-shadow {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3), -2px -2px 4px rgba(255,255,255,0.5);
+}
+.no-shadow {
+  text-shadow: none;
+}
+```
+
+အစဉ် - horizontal offset (x)၊ vertical offset (y)၊ blur radius၊ color။
+
+---
+
+**Shorthand ရေးနည်း**
+
+`font` property တစ်ခုတည်းဖြင့် အထက်ပါ တန်ဖိုးများစွာကို တစ်ပြိုင်နက် သတ်မှတ်နိုင်သည်။ အစဉ်မှာ `font-style` → `font-variant` → `font-weight` → `font-stretch` → `font-size/line-height` → `font-family`
+
+```css
+p {
+  font: italic small-caps bold condensed 16px/1.5 Arial, sans-serif;
+}
+body {
+  font: 16px/1.6 'Segoe UI', Roboto, sans-serif;
+}
+```
+
+`font-size` နှင့် `font-family` ကို မဖြစ်မနေ ထည့်ပေးရမည်။
+
+---
+
+**@font-face (ကိုယ်ပိုင် ဖောင့်တင်ရန်)**
+
+```css
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('myfont.woff2') format('woff2'),
+       url('myfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'MyCustomFont', Arial, sans-serif;
+}
+```
+
+`src` တွင် format အမျိုးမျိုးထည့်ရန် အကြံပြုသည် (woff2, woff, ttf)။ `font-display` ကို အောက်တွင် ရှင်းပြထားသည်။
+
+---
+
+**font-display (ဖောင့်တင်ပုံစနစ်)**
+
+`@font-face` အတွင်း သုံးသော property ဖြစ်သည်။
+
+```css
+@font-face {
+  font-family: 'MyFont';
+  src: url('myfont.woff2');
+  font-display: swap;
+}
+```
+
+တန်ဖိုးများ - `auto` (browser ဆုံးဖြတ်သည်)၊ `block` (ဖောင့်မရောက်မချင်း စာသားမပြ)၊ `swap` (အရံဖောင့်နဲ့ပြပြီး ဖောင့်ရောက်ရင် ပြောင်း)၊ `fallback` (swap နှင့်တူသော်လည်း ခဏသာစောင့်)၊ `optional` (ရောက်ရင် ကောင်း၊ မရောက်ရင် အရံအတိုင်းထား)။ `swap` သည် performance အတွက် အကောင်းဆုံးဖြစ်သည်။
+
+---
+
+**Variable Fonts (စိတ်ကြိုက် အထူ၊ အကျယ်၊ စောင်း)**
+
+ဝဘ်ဖောင့်တစ်ခုတည်းတွင် weight, width, slant စသည်တို့ကို စဉ်ဆက်မပြတ် သတ်မှတ်နိုင်သည်။
+
+```css
+@font-face {
+  font-family: 'MyVariableFont';
+  src: url('variablefont.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-stretch: 50% 200%;
+}
+
+body {
+  font-family: 'MyVariableFont', sans-serif;
+  font-weight: 450;
+  font-stretch: 75%;
+}
+```
+
+Google Fonts တွင် variable fonts များရှိသည်။ ဥပမာ - `https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100..900&display=swap`
+
+---
+
+**Web Safe Fonts (လုံခြုံသောဖောင့်များ)**
+
+ဤဖောင့်များသည် Windows, Mac, Linux အားလုံးနီးပါးတွင် ရှိသည်။
+
+```css
+/* Serif */
+font-family: Georgia, 'Times New Roman', Times, serif;
+
+/* Sans-serif */
+font-family: Arial, Helvetica, sans-serif;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+font-family: Verdana, Geneva, sans-serif;
+
+/* Monospace */
+font-family: 'Courier New', Courier, monospace;
+font-family: 'Lucida Console', Monaco, monospace;
+```
+
+---
+
+**System Font Stack (ပြည့်စုံသော version)**
+
+```css
+/* ခေတ်မီ system font stack - အကုန်လုံးအတွက် */
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif;
+}
+
+/* Apple အတွက် */
+.mac-font {
+  font-family: -apple-system, 'San Francisco', Helvetica, sans-serif;
+}
+
+/* Windows အတွက် */
+.windows-font {
+  font-family: 'Segoe UI', 'Segoe UI Variable', 'Tahoma', sans-serif;
+}
+
+/* Linux အတွက် */
+.linux-font {
+  font-family: 'Ubuntu', 'Cantarell', 'Noto Sans', 'DejaVu Sans', sans-serif;
+}
+```
+
+`system-ui` သည် ခေတ်အဆက်ဆက်အတွက် အကောင်းဆုံးဖြစ်သည်။
+
+---
+
+**Google Fonts အသုံးပြုနည်း (အသေးစိတ်)**
+
+HTML ဖိုင်၏ `<head>` အတွင်းတွင် ထည့်ပါ။
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+```
+
+ထို့နောက် CSS ဖိုင်တွင်
+
+```css
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+```
+
+`ital` ဖြင့် italic ပုံစံမျိုးကိုပါ ရွေးချယ်နိုင်သည်။ `display=swap` ကို အမြဲထည့်ရန် အကြံပြုသည်။
+
+---
+
+**Responsive Typography (အဆင့်မြင့်)**
+
+```css
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* clamp() ကိုသုံး၍ fluid typography */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+p {
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+}
+```
+
+`clamp(min, preferred, max)` သည် viewport အရွယ်အလိုက် အလိုအလျောက် ပြောင်းလဲပေးပြီး အနိမ့်ဆုံးနှင့် အမြင့်ဆုံးကို သတ်မှတ်ပေးသည်။
+
+---
+
+**အကောင်းဆုံး အလေ့အကျင့်များ (Best Practices - အပြည့်အစုံ)**
+
+```css
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root settings */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Base body */
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #111;
+  background-color: #fff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Paragraphs and text */
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+small, .text-small {
+  font-size: 0.875rem;
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+.text-bold { font-weight: 700; }
+.text-light { font-weight: 300; }
+.text-italic { font-style: italic; }
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+.letter-spacing-wide { letter-spacing: 0.05em; }
+.letter-spacing-narrow { letter-spacing: -0.02em; }
+
+/* Responsive headings */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  html { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+}
+```
+
+---
+
+**အကျဉ်းချုပ် (Summary)**
+
+- `font-family`: ဖောင့်အမျိုးအစား (fallback ထည့်ပါ)
+- `font-size`: `rem` ကိုသုံးပါ (1rem = 16px)
+- `font-weight`: `bold` (၇၀၀) သို့မဟုတ် `normal` (၄၀၀)
+- `font-style`: `italic` သို့ `normal`
+- `font-stretch`: `condensed` သို့ `expanded` (ပံ့ပိုးမှုနည်း)
+- `font-variant`: `small-caps`
+- `line-height`: unit မပါသော နံပါတ် (၁.၄ မှ ၁.၆)
+- `letter-spacing`: စာလုံးကြားနေရာ (ရှားရှားပါးပါးသုံး)
+- `text-align`: `left`, `center`, `right`, `justify`
+- `text-transform`: `uppercase`, `lowercase`, `capitalize`
+- `text-decoration`: `underline`, `overline`, `line-through`
+- `text-shadow`: အရိပ်ထည့်ရန်
+- `@font-face`: ကိုယ်ပိုင်ဖောင့်တင်ရန်
+- `font-display: swap`: web font အတွက် performance အကောင်းဆုံး
+- Variable fonts: ဖောင့်တစ်ခုတည်းဖြင့် weight, width, slant အမျိုးမျိုး
+- Responsive: media queries နှင့် `clamp()` ကိုသုံးပါ
+- System font stack: `system-ui` သို့မဟုတ် `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
